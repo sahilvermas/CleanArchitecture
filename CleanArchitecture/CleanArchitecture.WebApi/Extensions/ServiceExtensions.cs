@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System;
+using System.Collections.Generic;
 
 namespace CleanArchitecture.WebApi.Extensions
 {
@@ -21,9 +21,9 @@ namespace CleanArchitecture.WebApi.Extensions
                     Description = "This Api will be responsible for overall data distribution and authorization.",
                     Contact = new OpenApiContact
                     {
-                        Name = "codewithmukesh",
-                        Email = "hello@codewithmukesh.com",
-                        Url = new Uri("https://codewithmukesh.com/contact")
+                        Name = "dreamslogic",
+                        Email = "me.sahilverma@hotmail.com",
+                        Url = new Uri("https://dreamslogic.com/contact")
                     }
                 });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

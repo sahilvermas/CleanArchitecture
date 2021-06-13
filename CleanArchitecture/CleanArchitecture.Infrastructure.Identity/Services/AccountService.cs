@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using CleanArchitecture.Application.DTOs.Account;
+﻿using CleanArchitecture.Application.DTOs.Account;
 using CleanArchitecture.Application.DTOs.Email;
 using CleanArchitecture.Application.Enums;
 using CleanArchitecture.Application.Exceptions;
@@ -19,6 +11,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CleanArchitecture.Infrastructure.Identity.Services
 {
@@ -91,7 +91,8 @@ namespace CleanArchitecture.Infrastructure.Identity.Services
                     //TODO: Attach Email Service here and configure it via appsettings
                     await _emailService.SendAsync(new EmailRequest
                     {
-                        From = "mail@codewithmukesh.com", To = user.Email,
+                        From = "me.sahilverma@hotmail.com",
+                        To = user.Email,
                         Body = $"Please confirm your account by visiting this URL {verificationUri}",
                         Subject = "Confirm Registration"
                     });
