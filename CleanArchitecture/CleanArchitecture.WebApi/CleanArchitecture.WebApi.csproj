@@ -36,8 +36,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CleanArchitecture.Infrastructure.Hangfire\CleanArchitecture.Infrastructure.Hangfire.csproj" />
     <ProjectReference Include="..\CleanArchitecture.Application\CleanArchitecture.Application.csproj" />
+    <ProjectReference Include="..\CleanArchitecture.Infrastructure.Hangfire\CleanArchitecture.Infrastructure.Hangfire.csproj" />
     <ProjectReference Include="..\CleanArchitecture.Infrastructure.Identity\CleanArchitecture.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\CleanArchitecture.Infrastructure.Persistence\CleanArchitecture.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\CleanArchitecture.Infrastructure.Shared\CleanArchitecture.Infrastructure.Shared.csproj" />
