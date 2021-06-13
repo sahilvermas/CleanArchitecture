@@ -1,5 +1,7 @@
 using CleanArchitecture.Application;
 using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Infrastructure.Hangfire;
+using CleanArchitecture.Infrastructure.Hangfire.Extensions;
 using CleanArchitecture.Infrastructure.Identity;
 using CleanArchitecture.Infrastructure.Persistence;
 using CleanArchitecture.Infrastructure.Shared;
@@ -29,6 +31,7 @@ namespace CleanArchitecture.WebApi
             services.AddPersistenceInfrastructure(_config);
             services.AddSharedInfrastructure(_config);
             services.AddSwaggerExtension();
+            services.AddHanfireInfrastructure(_config);
             services.AddControllers();
             services.AddApiVersioningExtension();
             services.AddHealthChecks();
@@ -56,6 +59,8 @@ namespace CleanArchitecture.WebApi
             app.UseHealthChecks("/health");
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            app.UseHangfireDashboard();
         }
     }
 }
