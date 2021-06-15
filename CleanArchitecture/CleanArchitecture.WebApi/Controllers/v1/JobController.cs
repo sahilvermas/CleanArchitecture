@@ -9,15 +9,10 @@ namespace CleanArchitecture.WebApi.Controllers.v1
     {
         private readonly IJobService _jobService;
 
-        public JobController(IJobService jobService)
-        {
-            _jobService = jobService;
-        }
+        public JobController(IJobService jobService) => _jobService = jobService;
 
         [HttpPost]
-        public async Task<IActionResult> Post()
-        {
-            return Ok(await Task.Factory.StartNew(_jobService.FireAndForgetJob));
-        }
+        public async Task<IActionResult> Post() =>
+            Ok(await Task.Factory.StartNew(() => _jobService.FireAndForgetJob()));
     }
 }

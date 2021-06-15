@@ -56,7 +56,7 @@ namespace CleanArchitecture.WebApi
             app.UseAuthorization();
             app.UseSwaggerExtension();
             app.UseErrorHandlingMiddleware();
-            app.UseHealthChecks("/health");
+            app.UseHealthCheckExtension();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
