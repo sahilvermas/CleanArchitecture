@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Interfaces.Repositories;
+using CleanArchitecture.Infrastructure.Persistence.Connections;
 using CleanArchitecture.Infrastructure.Persistence.Contexts;
 using CleanArchitecture.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,15 @@ namespace CleanArchitecture.Infrastructure.Persistence
             services.AddTransient<IProductRepositoryAsync, ProductRepositoryAsync>();
 
             #endregion
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options
+                    .UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
+            );
+
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContextNew>());
+            services.AddScoped<IApplicationWriteDbConnection, ApplicationWriteDbConnection>();
+            services.AddScoped<IApplicationReadDbConnection, ApplicationReadDbConnection>();
         }
     }
 }
